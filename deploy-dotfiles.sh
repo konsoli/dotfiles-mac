@@ -67,11 +67,16 @@ DOTFILES_DIR="$HOME/github/dotfiles-mac"
 stow_package "$DOTFILES_DIR" home
 
 # Let's change some defaults aka settings.
+# Great resource: https://macos-defaults.com/dock/tilesize.html
 defaults write -g KeyRepeat -int 1 # keys repeat faster
 defaults write -g InitialKeyRepeat -int 50 # key repeat starts faster
 defaults write -g com.apple.SwiftUI.DisableSolarium -bool YES # removes liquid glass from use - NO to undo.
 defaults write com.apple.assistant.support "Assistant Enabled" -bool false # disable ask siri
 defaults write com.apple.Siri StatusMenuVisible -bool false # remove siri icon
+defaults write com.apple.dock "autohide" -bool "true"  # dock autohide
+defaults write com.apple.dock "autohide-delay" -float "0" # dock no autohide delay
+defaults write com.apple.dock "tilesize" -int "36" # smaller dock icons
+defaults write com.apple.dock "orientation" -string "left" && killall Dock # dock position left
 echo "defaults set. this might need a restart."
 
 echo "You're all set. Enjoy. Might need a restart if this was your first run."

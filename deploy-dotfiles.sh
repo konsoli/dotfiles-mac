@@ -70,6 +70,8 @@ stow_package "$DOTFILES_DIR" home
 defaults write -g KeyRepeat -int 1 # keys repeat faster
 defaults write -g InitialKeyRepeat -int 50 # key repeat starts faster
 defaults write -g com.apple.SwiftUI.DisableSolarium -bool YES # removes liquid glass from use - NO to undo.
+defaults write com.apple.assistant.support "Assistant Enabled" -bool false # disable ask siri
+defaults write com.apple.Siri StatusMenuVisible -bool false # remove siri icon
 echo "defaults set. this might need a restart."
 
 echo "You're all set. Enjoy. Might need a restart if this was your first run."

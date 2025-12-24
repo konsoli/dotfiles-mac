@@ -39,6 +39,8 @@ brew "zsh-autosuggestions"
 brew "vim"
 brew "rust-analyzer"
 brew "stow"
+brew "yazi" #file explorer
+brew "wallpaper" #change wallpapers from terminal
 
 # Install graphical apps
 cask "aerospace"

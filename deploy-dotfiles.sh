@@ -66,6 +66,9 @@ backup_if_not_symlink "$HOME/.zshrc"
 DOTFILES_DIR="$HOME/github/dotfiles-mac"
 stow_package "$DOTFILES_DIR" home
 
+# Let's set a sensible wallpaper.
+wallpaper set "$HOME/.walls/wall01.png"
+
 # Let's change some defaults aka settings.
 # Great resource: https://macos-defaults.com/dock/tilesize.html
 defaults write -g KeyRepeat -int 1 # keys repeat faster

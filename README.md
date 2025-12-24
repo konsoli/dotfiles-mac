@@ -1,6 +1,11 @@
 # dotfiles-mac
 My dotfiles, system settings aka defaults and brew installs.
 
+## To do
+* modularize things 
+* separate files for functions and actions for the install script
+* 
+
 ## This is how you commit shit.
 ```bash
 git add . && git commit -m "comment about changes here" && git push

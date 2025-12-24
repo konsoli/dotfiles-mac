@@ -10,6 +10,7 @@ alias home="ssh paulme@192.168.68.241"
 alias ll='ls -lh'
 alias lla='ls -alh'
 alias fastfetch='fastfetch --config examples/13'
+alias dotgit="git add . && git commit -m $1 && git push"
 
 eval "$(starship init zsh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"

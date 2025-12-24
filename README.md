@@ -2,9 +2,13 @@
 My dotfiles, system settings aka defaults and brew installs.
 
 ## To do
+* fix alias for dotgit so the message comes from the command
 * modularize things 
 * separate files for functions and actions for the install script
-* 
+* make the start more robust: 
+    * if no xcode then install xcode 
+    * if no homebrew, then install homebrew
+    * if no stow, then install stow
 
 ## This is how you commit shit.
 ```bash

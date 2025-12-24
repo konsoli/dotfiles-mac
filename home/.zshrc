@@ -4,16 +4,24 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
+eval "$(starship init zsh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+dotgit() {
+    [ -z "$1" ] && { echo 'Use dotgit "commit msg"' >&2; return 1; }
+    local repo="$HOME/github/dotfiles-mac"
+    git -C "$repo" add . 
+    git -C "$repo" commit -m "$1"
+    git -C "$repo" push
+}
+
 alias ls='ls -Gp'
 alias pihole="ssh paulme@192.168.68.250"
 alias home="ssh paulme@192.168.68.241"
 alias ll='ls -lh'
 alias lla='ls -alh'
 alias fastfetch='fastfetch --config examples/13'
-alias dotgit="git add . && git commit -m $1 && git push"
 
-eval "$(starship init zsh)"
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if command -v fastfetch >/dev/null 2>&1; then
     fastfetch

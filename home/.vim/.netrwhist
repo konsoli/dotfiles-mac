@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/paul.merisalu/github/dotfiles-mac/home'
 let g:netrw_dirhist_2='/Users/paul.merisalu/github/dotfiles-mac'
 let g:netrw_dirhist_1='/Users/paul.merisalu/github/dotfiles-mac/home'
 let g:netrw_dirhist_0='/Users/paul.merisalu/github/dotfiles-mac'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_7='/Users/paul.merisalu/Documents/03-resources/dotfiles'
 let g:netrw_dirhist_6='/Users/paul.merisalu'
 let g:netrw_dirhist_5='/Users/paul.merisalu/Documents/03-resources/dotfiles/.vim'
 let g:netrw_dirhist_4='/Users/paul.merisalu/Documents/03-resources/dotfiles'
-let g:netrw_dirhist_3='/Users/paul.merisalu/Documents/03-resources/dotfiles/.vim'

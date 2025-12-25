@@ -8,7 +8,7 @@ backup_if_not_symlink() {
     local path="$1"
     if [ -e "$path" ] && [ ! -L "$path" ]; then
         mv "$path" "${path}-backup-$(date +%Y-%m-%d-%H%M%S)"
-        echo "Backing up $path"
+        echo "=== Backing up $path"
     fi
 }
 
@@ -18,13 +18,13 @@ stow_package() {
     local target="${3:-$HOME}"
 
     if [ -d "$dotfiles_dir/$package" ]; then
-        echo "Stowing '$package' from $dotfiles_dir → $target"
+        echo "=== Stowing '$package' from $dotfiles_dir → $target"
         (
             cd "$dotfiles_dir" || return 1
             stow -v --target="$target" "$package"
         )
     else
-        echo "Stow package not found: $dotfiles_dir/$package" >&2
+        echo "=== Stow package not found: $dotfiles_dir/$package" >&2
         return 1
     fi
 }
@@ -34,10 +34,10 @@ ensure_dotfiles_repo() {
     local REPO="https://github.com/konsoli/dotfiles-mac.git"
 
     if [ ! -d "$DIR" ]; then
-        echo "$DIR is missing. Cloning dotfiles from $REPO"
+        echo "=== $DIR is missing. Cloning dotfiles from $REPO"
         git clone "$REPO" "$DIR"
     else
-        echo "Dotfiles repo exists at $DIR"
+        echo "=== Dotfiles repo exists at $DIR"
     fi
 }
 
@@ -50,22 +50,22 @@ fi
 
 # Checking if homebrew exists. If not, exit with message.
 if ! command -v brew >/dev/null 2>&1; then
-    echo "homebrew is not installed."
+    echo "=== homebrew is not installed."
     read -r -p "Press Enter to install homebrew (Ctrl-C to abort)"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo "homebrew is now installed."
+    echo "=== homebrew is now installed."
 fi
-echo "homebrew exists. let's install apps."
+echo "=== homebrew exists. let's install apps."
 
 # Install the stuff from Homebrew Brewfile.
 brew bundle --file="$HOME/github/dotfiles-mac/Brewfile"
 
 # Checking if stow exists. If not, exit with message.
 if ! command -v stow >/dev/null 2>&1; then
-    echo "stow is not installed for some reason. try running 'brew install stow' and rerun."
+    echo "=== stow is not installed for some reason. try running 'brew install stow' and rerun."
     exit 1
 fi
-echo "stow exists. let's install dotfiles."
+echo "=== stow exists. let's install dotfiles."
 
 # Let's backup the config files first. Just in case you fuck ship up.
 backup_if_not_symlink "$HOME/.vimrc"
@@ -92,7 +92,7 @@ defaults write com.apple.dock "autohide" -bool "true"  # dock autohide
 defaults write com.apple.dock "autohide-delay" -float "0" # dock no autohide delay
 defaults write com.apple.dock "tilesize" -int "36" # smaller dock icons
 defaults write com.apple.dock "orientation" -string "left" && killall Dock # dock position left
-echo "defaults set. this might need a restart."
+echo "=== defaults set. this might need a restart."
 
 # End of the script.
-echo "That's it. Now, get to work!"
+echo "=== That's it. Now, get to work!"

@@ -5,25 +5,29 @@ My dotfiles, system settings aka defaults and brew installs.
 * all good rn
 
 ## how to use this
-1. simply pull this with ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/konsoli/dotfiles-mac/refs/heads/main/install.sh)" ```
+simply pull this with ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/konsoli/dotfiles-mac/refs/heads/main/install.sh)" ```
 
-## This is how you commit shit.
+also it's possible to do this:
+```bash
+mkdir ~/github/ && cd ~/github
+git clone https://github.com/konsoli/dotfiles-mac
+cd dotfiles-mac
+./deploy-dotfiles.sh
+```
+
+## This is how you commit new changes.
 ```bash
 git add . && git commit -m "comment about changes here" && git push
+```
+or simply
+```bash
+dotgit "commit comment"
 ```
 
 ## If git says you shit.
 ```bash
 git pull --rebase
 git push
-```
-
-## This is how you get this shit.
-```bash
-mkdir ~/github/ && cd ~/github
-git clone https://github.com/konsoli/dotfiles-mac
-cd dotfiles-mac
-./deploy-dotfiles.sh
 ```
 
 ## If you don't have git.

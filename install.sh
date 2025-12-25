@@ -1,7 +1,9 @@
 #!/bin/bash
 # This installs all my usually used apps, cli tools and default settings.
 
-# This is a function to backup a file if it's not a symbolic link already.
+clear # Start with a blank terminal.
+
+# Functions to backup if conf file is not symlink and other to use stow dotfiles into the home directory. 
 backup_if_not_symlink() {
     local path="$1"
     if [ -e "$path" ] && [ ! -L "$path" ]; then
@@ -9,7 +11,6 @@ backup_if_not_symlink() {
     fi
 }
 
-# This is a function to use stow dotfiles into the home directory.
 stow_package() {
     local dotfiles_dir="$1"
     local package="$2"
@@ -27,7 +28,7 @@ stow_package() {
     fi
 }
 
-# Try to make Homebrew immediately available in this script/session. MacOS locations for Homebrew.
+# Make Homebrew available in this script/session.
 if [ -x "/opt/homebrew/bin/brew" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 elif [ -x "/usr/local/bin/brew" ]; then
@@ -37,23 +38,21 @@ fi
 # Checking if homebrew exists. If not, exit with message.
 if ! command -v brew >/dev/null 2>&1; then
     echo "homebrew is not installed."
-    echo "Install homebrew with the following script:"
-    echo '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
-    echo "Exiting script."
-    exit 1
+    read -r -p "Press Enter to install homebrew (Ctrl-C to abort)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "homebrew is now installed."
 fi
-echo 'homebrew exists. we can install apps.'
+echo "homebrew exists. let's install apps."
 
 # Install the stuff from Homebrew Brewfile.
 brew bundle --file="$HOME/github/dotfiles-mac/Brewfile"
 
 # Checking if stow exists. If not, exit with message.
 if ! command -v stow >/dev/null 2>&1; then
-    echo 'stow is not installed.'
-    echo 'Exiting script. If stow was just installed by this script, just rerun this script.'
+    echo "stow is not installed for some reason. try brew install stow and rerun."
     exit 1
 fi
-echo 'stow exists. we can deploy dotfiles.'
+echo "stow exists. let's install dotfiles."
 
 # Let's backup the config files first. Just in case you fuck ship up.
 backup_if_not_symlink "$HOME/.vimrc"
@@ -71,8 +70,8 @@ wallpaper set "$HOME/.walls/wall01.png"
 
 # Let's change some defaults aka settings.
 # Great resource: https://macos-defaults.com/dock/tilesize.html
-defaults write -g KeyRepeat -int 1 # keys repeat faster
-defaults write -g InitialKeyRepeat -int 50 # key repeat starts faster
+defaults write -g KeyRepeat -int 2 # keys repeat faster
+defaults write -g InitialKeyRepeat -int 15 # key repeat starts faster
 defaults write -g com.apple.SwiftUI.DisableSolarium -bool YES # removes liquid glass from use - NO to undo.
 defaults write com.apple.assistant.support "Assistant Enabled" -bool false # disable ask siri
 defaults write com.apple.Siri StatusMenuVisible -bool false # remove siri icon
@@ -82,13 +81,5 @@ defaults write com.apple.dock "tilesize" -int "36" # smaller dock icons
 defaults write com.apple.dock "orientation" -string "left" && killall Dock # dock position left
 echo "defaults set. this might need a restart."
 
-echo "You're all set. Enjoy. Might need a restart if this was your first run."
-
-echo "These configs were changed:"
-ls -lahGp ~/.vim
-ls -lahGp ~/.vimrc
-ls -lahGp ~/.zshrc
-ls -lahGp ~/.aerospace.toml
-ls -lahGp ~/.config
-ls -lahGp ~/.config/*
+# End of the script.
 echo "That's it. Now, get to work!"

@@ -100,13 +100,13 @@ on-mode-changed = []
     # You can uncomment the following lines to open up terminal with ctrl + enter shortcut
     # (like in i3)
 
-ctrl-enter = '''exec-and-forget osascript -e '
-    tell application "Terminal"
-     do script
-     activate
-     end tell'
-    '''
-
+#ctrl-enter = '''exec-and-forget osascript -e '
+#    tell application "Terminal"
+#     do script
+#     activate
+#     end tell'
+#    '''
+ctrl-enter = 'exec-and-forget open -a "Ghostty"'
 ctrl-shift-b = 'exec-and-forget open -a "Brave Browser"'
 ctrl-shift-o = 'exec-and-forget open -a "Obsidian"'
 ctrl-shift-f = 'exec-and-forget open -a "Figma"'
@@ -167,6 +167,15 @@ ctrl-shift-s = 'exec-and-forget open -a "Slack"'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     ctrl-shift-q = 'mode service'
+
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser'
+run = ['move-node-to-workspace 9', 'workspace 9']
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = ['move-node-to-workspace 8', 'workspace 8']
+
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes

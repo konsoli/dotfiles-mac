@@ -7,6 +7,7 @@ tap "nikitabobko/tap"
 cask "font-meslo-lg-nerd-font"
 cask "sf-symbols"
 cask "font-jetbrains-mono-nerd-font"
+cask "font-symbols-only-nerd-font"
 
 # Install command line tools
 brew "bat"
@@ -28,6 +29,13 @@ brew "stow" #stow dotfiles
 brew "yazi" #file explorer
 brew "wallpaper" #change wallpapers from terminal
 brew "shellcheck" #spell check my shell scripts
+brew "zoxide" #faster cd kinda thing
+brew "ffmpeg" #dependency for yazi
+brew "sevenzip" #look at zipped files in yazi
+brew "jq" #dependency for yazi
+brew "poppler" #dependency for yazi
+brew "ripgrep" #faster grep
+brew "resvg" #dependency for yazi
 
 # Install graphical apps
 cask "aerospace"

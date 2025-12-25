@@ -7,6 +7,8 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 eval "$(starship init zsh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 
 source "$HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
@@ -30,25 +32,3 @@ alias fastfetch='fastfetch --config examples/13'
 if command -v fastfetch >/dev/null 2>&1; then
     fastfetch
 fi
-# Letters indicate the colour:
-#a = black
-#b = red
-#c = green
-#d = brown
-#e = blue
-#f = magenta
-#g = cyan
-#h = light gray
-#x = default
-#The position in the sequence indicate what we’re trying to colour. This is the sequence:
-#DIR
-#SYM_LINK
-#SOCKET
-#PIPE
-#EXE
-#BLOCK_SP
-#CHAR_SP
-#EXE_SUID
-#EXE_GUID
-#DIR_STICKY
-#DIR_WO_STICKY

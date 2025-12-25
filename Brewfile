@@ -36,6 +36,7 @@ brew "zoxide"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # My additions, no explanation needed.
+brew "zsh-autocomplete"
 brew "vim"
 brew "rust-analyzer"
 brew "stow"

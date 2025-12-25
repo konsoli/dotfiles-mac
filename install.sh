@@ -8,6 +8,7 @@ backup_if_not_symlink() {
     local path="$1"
     if [ -e "$path" ] && [ ! -L "$path" ]; then
         mv "$path" "${path}-backup-$(date +%Y-%m-%d-%H%M%S)"
+        echo "Backing up $path"
     fi
 }
 
@@ -61,7 +62,7 @@ brew bundle --file="$HOME/github/dotfiles-mac/Brewfile"
 
 # Checking if stow exists. If not, exit with message.
 if ! command -v stow >/dev/null 2>&1; then
-    echo "stow is not installed for some reason. try brew install stow and rerun."
+    echo "stow is not installed for some reason. try running 'brew install stow' and rerun."
     exit 1
 fi
 echo "stow exists. let's install dotfiles."

@@ -41,6 +41,7 @@ brew "rust-analyzer"
 brew "stow"
 brew "yazi" #file explorer
 brew "wallpaper" #change wallpapers from terminal
+brew "shellcheck" #spell check my shell scripts
 
 # Install graphical apps
 cask "aerospace"

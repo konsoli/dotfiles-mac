@@ -1,14 +1,11 @@
 # dotfiles-mac
 My dotfiles, system settings aka defaults and brew installs.
 
-## To do
-* fix alias for dotgit so the message comes from the command
-* modularize things 
-* separate files for functions and actions for the install script
-* make the start more robust: 
-    * if no xcode then install xcode 
-    * if no homebrew, then install homebrew
-    * if no stow, then install stow
+## to do
+* all good rn
+
+## how to use this
+1. simply pull this with ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/konsoli/dotfiles-mac/refs/heads/main/install.sh)" ```
 
 ## This is how you commit shit.
 ```bash

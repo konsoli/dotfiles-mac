@@ -8,6 +8,7 @@ source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(starship init zsh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+# PROMPT="%n in %~: " #fallback if no starship
 
 dotgit() {
     [ -z "$1" ] && { echo 'Use dotgit "commit msg"' >&2; return 1; }
@@ -18,8 +19,8 @@ dotgit() {
 }
 
 alias ls='ls -Gp'
-alias pihole="ssh paulme@192.168.68.250"
-alias home="ssh paulme@192.168.68.241"
+alias ph="ssh paulme@192.168.68.250"
+alias ha='ssh paulme@192.168.68.241'
 alias ll='ls -lh'
 alias lla='ls -alh'
 alias fastfetch='fastfetch --config examples/13'

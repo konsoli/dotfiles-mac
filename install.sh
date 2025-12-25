@@ -28,6 +28,18 @@ stow_package() {
     fi
 }
 
+ensure_dotfiles_repo() {
+    local DIR="$HOME/github/dotfiles-mac"
+    local REPO="https://github.com/konsoli/dotfiles-mac.git"
+
+    if [ ! -d "$DIR" ]; then
+        echo "$DIR is missing. Cloning dotfiles from $REPO"
+        git clone "$REPO" "$DIR"
+    else
+        echo "Dotfiles repo exists at $DIR"
+    fi
+}
+
 # Make Homebrew available in this script/session.
 if [ -x "/opt/homebrew/bin/brew" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/paul.merisalu/github/dotfiles-mac/home/.config/ghostty'
+let g:netrw_dirhist_1='/Users/paul.merisalu/github/dotfiles-mac/home/.config'
+let g:netrw_dirhist_0='/Users/paul.merisalu/Documents/04-archive/Mainostajat'
 let g:netrw_dirhist_9='/Users/paul.merisalu/github/dotfiles-mac'
 let g:netrw_dirhist_8='/Users/paul.merisalu'
 let g:netrw_dirhist_7='/Users/paul.merisalu/github/dotfiles-mac/home'
@@ -7,6 +10,3 @@ let g:netrw_dirhist_6='/Users/paul.merisalu/github/dotfiles-mac/home/.config/gho
 let g:netrw_dirhist_5='/Users/paul.merisalu/github'
 let g:netrw_dirhist_4='/Users/paul.merisalu/github/dotfiles-mac'
 let g:netrw_dirhist_3='/Users/paul.merisalu/github/dotfiles-mac/home'
-let g:netrw_dirhist_2='/Users/paul.merisalu/github/dotfiles-mac'
-let g:netrw_dirhist_1='/Users/paul.merisalu/github/dotfiles-mac/home'
-let g:netrw_dirhist_0='/Users/paul.merisalu/github/dotfiles-mac'

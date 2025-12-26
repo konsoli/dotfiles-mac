@@ -1,17 +1,16 @@
 export PATH="$PATH:/Users/paul.merisalu/.local/bin"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-# PROMPT="%n in %~: " #fallback if no starship
+#export CLICOLOR=1
+#export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+#PROMPT="%n in %~: " #fallback if no starship
 
-eval "$(starship init zsh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
-
 source "$HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+eval "$(starship init zsh)"
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 
 dotgit() {
     [ -z "$1" ] && { echo 'Use dotgit "commit msg"' >&2; return 1; }
